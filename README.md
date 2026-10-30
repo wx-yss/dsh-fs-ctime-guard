@@ -36,26 +36,26 @@ DSH 上游已有同款讨论：[#3111 版本 token 包含 ctime 导致元数据�
 
 ## 安装
 
-本地 link 安装（当前开发者用法）：
-
 ```sh
-cd ~/.dsh/profiles/web
-pnpm add link:/Users/yss/Documents/project/remote/dsh-fs-ctime-guard
-```
-
-然后把 `dsh-fs-ctime-guard` 加到 `~/.dsh/profiles/web/package.json` 的 `dsh.profile.bundles` 末尾，重启 DSH：
-
-```sh
+dsh plugin --profile web add link:/path/to/dsh-fs-ctime-guard
 ds
 ```
 
-发布到 npm 后可以简化为：
+`dsh plugin add` 会自动把包加进 profile 的 `dsh.profile.bundles`，重启后生效。
+
+发布到 npm 后把 `link:...` 换成包名即可：
 
 ```sh
 dsh plugin --profile web add dsh-fs-ctime-guard
+ds
 ```
 
-（仍需把包名加入 `dsh.profile.bundles`，DSH 由 bundles 顺序组装配置树。）
+卸载：
+
+```sh
+dsh plugin --profile web remove dsh-fs-ctime-guard
+ds
+```
 
 ## 验证
 
