@@ -1,5 +1,7 @@
 # DSH FS ctime Guard
 
+[npm](https://www.npmjs.com/package/dsh-fs-ctime-guard) · [GitHub](https://github.com/wx-yss/dsh-fs-ctime-guard)
+
 让 DSH 的文件版本守卫忽略“只改了 ctime”的元数据噪声，修掉 macOS 上频发的：
 
 ```
@@ -37,18 +39,18 @@ DSH 上游已有同款讨论：[#3111 版本 token 包含 ctime 导致元数据�
 ## 安装
 
 ```sh
+dsh plugin --profile web add dsh-fs-ctime-guard
+ds
+```
+
+本地开发用 link 安装：
+
+```sh
 dsh plugin --profile web add link:/path/to/dsh-fs-ctime-guard
 ds
 ```
 
 `dsh plugin add` 会自动把包加进 profile 的 `dsh.profile.bundles`，重启后生效。
-
-发布到 npm 后把 `link:...` 换成包名即可：
-
-```sh
-dsh plugin --profile web add dsh-fs-ctime-guard
-ds
-```
 
 卸载：
 
