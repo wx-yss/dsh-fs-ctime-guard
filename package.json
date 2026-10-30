@@ -1,0 +1,43 @@
+{
+  "name": "dsh-fs-ctime-guard",
+  "version": "0.1.1",
+  "description": "让 DSH 的文件版本守卫忽略“只改了 ctime”的元数据噪声（Spotlight/TCC 打标 macl 等），避免误报 FS_STALE_VERSION。",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "cordis.bundle.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node test/run.mjs",
+    "test:integration": "node test/integration.mjs",
+    "check": "node --check lib/index.js && npm test"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.bundle.yml"
+    }
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "filesystem",
+    "macos",
+    "ctime"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wx-yss/dsh-fs-ctime-guard.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wx-yss/dsh-fs-ctime-guard/issues"
+  },
+  "homepage": "https://github.com/wx-yss/dsh-fs-ctime-guard#readme",
+  "license": "MIT"
+}
